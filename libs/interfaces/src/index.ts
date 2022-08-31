@@ -1,1 +1,1 @@
-export * from './lib/interfaces';
+export * from './Gym/gym.interface';
