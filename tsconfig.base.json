@@ -15,9 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@falcon/api/core": ["libs/api/core/src/index.ts"],
-      "@falcon/api/database": ["libs/api/database/src/index.ts"],
-      "@falcon/api/gym": ["libs/api/gym/src/index.ts"],
       "@falcon/interfaces": ["libs/interfaces/src/index.ts"]
     }
   },

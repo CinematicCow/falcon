@@ -3,9 +3,6 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
-    "api-core": "libs/api/core",
-    "api-database": "libs/api/database",
-    "api-gym": "libs/api/gym",
     "interfaces": "libs/interfaces",
     "web": "apps/web"
   }
