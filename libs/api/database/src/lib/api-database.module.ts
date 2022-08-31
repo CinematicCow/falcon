@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ApiDatabaseService } from './api-database.service';
+import { TypeOrmConfigService } from './api-database.service';
 
 @Module({
-  controllers: [],
-  providers: [ApiDatabaseService],
-  exports: [ApiDatabaseService],
+  providers: [TypeOrmConfigService],
+  exports: [TypeOrmConfigService],
 })
 export class ApiDatabaseModule {}
