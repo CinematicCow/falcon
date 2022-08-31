@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "api-core": "libs/api/core",
     "interfaces": "libs/interfaces",
     "web": "apps/web"
   }
