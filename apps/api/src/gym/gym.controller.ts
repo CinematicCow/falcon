@@ -10,6 +10,7 @@ import {
 import { GymService } from './gym.service';
 import { CreateGymDto } from './dto/create-gym.dto';
 import { UpdateGymDto } from './dto/update-gym.dto';
+import { Gym } from './entities/gym.entity';
 
 @Controller('gym')
 export class GymController {

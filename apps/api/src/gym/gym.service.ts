@@ -1,3 +1,4 @@
+import { IGym } from '@falcon/interfaces';
 import { Injectable } from '@nestjs/common';
 import { CreateGymDto } from './dto/create-gym.dto';
 import { UpdateGymDto } from './dto/update-gym.dto';
@@ -8,8 +9,8 @@ export class GymService {
     return 'This action adds a new gym';
   }
 
-  findAll() {
-    return `This action returns all gym`;
+  findAll(): IGym[] {
+    return [`This action returns all gym`];
   }
 
   findOne(id: number) {
