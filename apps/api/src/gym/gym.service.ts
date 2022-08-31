@@ -9,7 +9,7 @@ export class GymService {
     return 'This action adds a new gym';
   }
 
-  findAll(): IGym[] {
+  findAll() {
     return [`This action returns all gym`];
   }
 
