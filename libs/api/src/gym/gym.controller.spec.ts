@@ -1,4 +1,3 @@
-import { IGym } from '@falcon/interfaces';
 import { Test, TestingModule } from '@nestjs/testing';
 import { CreateGymDto } from './dto/create-gym.dto';
 import { UpdateGymDto } from './dto/update-gym.dto';
@@ -11,6 +10,23 @@ const createGymDto: CreateGymDto = {
   location: 'gym loc',
   isActive: true,
 };
+
+const gyms = [
+  {
+    id: 1,
+    name: 'gym',
+    stub: 'gym-1',
+    location: 'gym loc',
+    isActive: true,
+  },
+  {
+    id: 2,
+    name: 'gym2',
+    stub: 'gym-2',
+    location: 'gym 2 loc',
+    isActive: false,
+  },
+];
 
 describe('GymController', () => {
   let controller: GymController;
@@ -27,22 +43,7 @@ describe('GymController', () => {
               Promise.resolve({ id: 1, ...gym });
             }),
 
-            findAll: jest.fn().mockResolvedValue([
-              {
-                id: 1,
-                name: 'gym',
-                stub: 'gym-1',
-                location: 'gym loc',
-                isActive: true,
-              },
-              {
-                id: 2,
-                name: 'gym2',
-                stub: 'gym-2',
-                location: 'gym 2 loc',
-                isActive: false,
-              },
-            ]),
+            findAll: jest.fn().mockResolvedValue(gyms),
 
             findOne: jest.fn().mockImplementation((id: number) => {
               Promise.resolve({
@@ -77,24 +78,18 @@ describe('GymController', () => {
 
   describe('create', () => {
     it('should create a gym', async () => {
-      await expect(controller.create(createGymDto)).toEqual({
+      await expect(controller.create(createGymDto)).resolves.toEqual({
         id: expect.any(Number),
         ...createGymDto,
       });
       expect(service.create).toHaveBeenCalled();
       expect(service.create).toHaveBeenCalledWith(createGymDto);
     });
-    it.todo('add failing test case');
-    it.todo('add error test case');
   });
 
-  describe('findAll', () => {
-    it.todo('should return an array of gyms');
-    // it('should return an array of gyms', async () => {
-    //   const result: IGym[] = [];
-    //   jest.spyOn(service, 'findAll').mockImplementation(() => result);
-
-    //   expect(await controller.findAll()).toBe(result);
-    // });
-  });
+  // describe('findAll', () => {
+  //   it('should return an array of gyms', async () => {
+  //     await expect(controller.findAll()).toEqual(gyms);
+  //   });
+  // });
 });
