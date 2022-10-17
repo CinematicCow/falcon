@@ -8,14 +8,8 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
 
   createTypeOrmOptions(): TypeOrmModuleOptions {
     return {
-      type: 'mysql',
-     /**
-      * TODO: fix localhost from env.
-      * Mysql Database is not connecting if localhost is being injected by
-      * the env file, but working if we manually set host to either
-      * "localhost" or "127.0.0.1"
-      */
-      host: '127.0.0.1',
+      type: 'postgres',
+      host: this.configService.get<string>('database_host'),
       port: this.configService.get<number>('database_port'),
       username: this.configService.get<string>('database_username'),
       password: this.configService.get<string>('database_password'),
