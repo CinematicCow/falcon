@@ -1,7 +1,8 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { IOwner } from '@falcon/interfaces';
 
 @Entity({ schema: 'gym' })
-export class Owner {
+export class Owner implements IOwner {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -18,8 +19,8 @@ export class Owner {
   password: string;
 
   @Column()
-  number: number;
+  number: string;
 
   @Column({ default: false })
-  isEmailVerified: boolean;
+  isEmailVerified?: boolean;
 }
