@@ -1,11 +1,13 @@
 import { Injectable } from '@nestjs/common';
+import { hashPassword } from '../common/encryptPassword';
 import { CreateOwnerDto } from './dto/create-owner.dto';
 import { UpdateOwnerDto } from './dto/update-owner.dto';
 
 @Injectable()
 export class OwnerService {
   create(createOwnerDto: CreateOwnerDto) {
-    return 'This action adds a new owner';
+    createOwnerDto.password = hashPassword(createOwnerDto.password);
+    return createOwnerDto;
   }
 
   findAll() {
